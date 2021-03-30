@@ -1,6 +1,6 @@
-# excel4-tests
+# Carbon Black TAU Excecl 4 Macro Analysis
 
-If you are interested in testing your endpoint security solution against Excel 4.0 macro techniques outlined in this post we have created a couple of stand alone test documents for you to download and execute. The test samples utilize different execution techniques and obfuscation. Each of these samples utilizes different techniques in order to execute calc.exe without directly calling the executable.  These initial test case 1-3 have no sandboxing detection techniques included.
+If you are interested in testing your endpoint security solution against Excel 4.0 macro techniques outlined in this post we have created a couple of stand alone test documents for you to download and execute. The test samples utilize different execution techniques and obfuscation. Each of these samples utilizes different techniques in order to execute calc.exe without directly calling the executable.
 
 We encourage you to run these on test systems and look to see if you are able to:
 - Identify the attacker obfuscation techniques being utilized with your current endpoint security solution.
