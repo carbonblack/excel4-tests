@@ -70,7 +70,7 @@ Common Evasion or Obfuscation techniques often used by malware inside of Excel4 
 
 Techniques | Description | Malicious Usage |
 ---------- | ----------- | --------------- |
-Download via DCONN | Pulls data from external data source | download additional excel4 macro content |
+`Download via DCONN` | Pulls data from external data source | download additional excel4 macro content |
 `CHAR` | returns a character when given a valid character code | obfuscates payloads and macro functions |
 `MID` | extracts a given number of characters from the middle of a supplied text string | obfuscates payloads and macro functions |
 `FORMULA` | Enters a formula in the active cell or in a reference. | dynamically builds payload as a function.  |
