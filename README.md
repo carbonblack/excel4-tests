@@ -9,7 +9,45 @@ We encourage you to run these on test systems and look to see if you are able to
 
 Overall the ability to use static/dynamic analysis on Excel 4.0 macros provides unreliable results, with Microsoft providing AMSI collection for Excel 4.0 macro execution security vendors now have the ability to dynamically scan and block content in real time. Adding additional protections to their customers.
 
-[[_TOC_]]
+Table of Contents
+=================
+   * [excel4-tests](#excel4-tests)
+      * [Excel 4 Macro Forensics Tips](#excel-4-macro-forensics-tips)
+         * [Execution Techniques](#execution-techniques)
+         * [Obfuscation Techniques](#obfuscation-techniques)
+         * [Sandboxing Detection Techniques](#sandboxing-detection-techniques)
+      * [Test Samples](#test-samples)
+         * [Sample Overview](#sample-overview)
+         * [Test Case 1](#test-case-1)
+            * [Sample Download](#sample-download)
+            * [Test case 1.1](#test-case-11)
+            * [Test case 1.2](#test-case-12)
+            * [Test case 1.3](#test-case-13)
+            * [Test case 1.4](#test-case-14)
+         * [Test Case 2](#test-case-2)
+            * [Sample Download](#sample-download-1)
+            * [Test case 2.1](#test-case-21)
+            * [Test case 2.2](#test-case-22)
+            * [Test case 2.3](#test-case-23)
+            * [Test case 2.4](#test-case-24)
+         * [Test Case 3](#test-case-3)
+            * [Sample Download](#sample-download-2)
+            * [Test case 3.1](#test-case-31)
+            * [Test case 3.2](#test-case-32)
+            * [Test case 3.3](#test-case-33)
+            * [Test case 3.4](#test-case-34)
+            * [Test case 3.5](#test-case-35)
+         * [Test case 1-3 Overview:](#test-case-1-3-overview)
+         * [Test case 4](#test-case-4)
+            * [Sample Download](#sample-download-3)
+            * [Test case 4.1](#test-case-41)
+            * [Test case 4.2](#test-case-42)
+            * [Test case 4.3](#test-case-43)
+            * [Test case 4.4](#test-case-44)
+         * [Clean Samples](#clean-samples)
+            * [Sample Download](#sample-download-4)
+            * [Clean sample 1](#clean-sample-1)
+            * [Clean sample 2](#clean-sample-2)
 
 ## Excel 4 Macro Forensics Tips
 
