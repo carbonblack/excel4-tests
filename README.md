@@ -1,4 +1,4 @@
-# Carbon Black TAU Excecl 4 Macro Analysis
+# Carbon Black TAU Excel 4 Macro Analysis
 
 If you are interested in testing your endpoint security solution against Excel 4.0 macro techniques outlined in this post we have created a couple of stand alone test documents for you to download and execute. The test samples utilize different execution techniques and obfuscation. Each of these samples utilizes different techniques in order to execute calc.exe without directly calling the executable.
 
@@ -11,7 +11,7 @@ Overall the ability to use static/dynamic analysis on Excel 4.0 macros provides 
 
 Table of Contents
 =================
-   * [excel4-tests](#excel4-tests)
+   * [Carbon Black TAU Excel 4 Macro Analysis](#carbon-black-tau-excel-4-macro-analysis)
       * [Excel 4 Macro Forensics Tips](#excel-4-macro-forensics-tips)
          * [Execution Techniques](#execution-techniques)
          * [Obfuscation Techniques](#obfuscation-techniques)
