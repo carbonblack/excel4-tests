@@ -93,22 +93,22 @@ Function | Description | Malicious Usage |
 Test Case | sha256 | Technique | VT Results |
 ---------- | ----------- | --------------- |  --------------- |
 1.1  | `4ee06ac4f0d73ec4d95cbc47a34ae550ab56f22efd19cc9aabf53e54d371e921` | EXEC function | 12/61 |
-1.2  | `1f42e1dc2ec916fd07fbd13177fe297094f54bcacb860268f1e31bef73bd7911` | EXEC function obfuscate | 7/59 |
-1.3  | `b68b34909890ffa0ae10ca7971d9e7c35eb25f64cb06370612d3579ad0e2592e` | EXEC function obfuscated Hidden sheet | 14/62  |
-1.4  | `98396550ad114ced706da614c73b0c4d20ed714051edb11066f5ee232cbccf9f` | EXEC function obfuscated VeryHidden sheet | 19/60 |
+1.2  | `1f42e1dc2ec916fd07fbd13177fe297094f54bcacb860268f1e31bef73bd7911` | Exec  function obfuscate | 7/59 |
+1.3  | `b68b34909890ffa0ae10ca7971d9e7c35eb25f64cb06370612d3579ad0e2592e` | Exec function obfuscated Hidden sheet | 14/62  |
+1.4  | `98396550ad114ced706da614c73b0c4d20ed714051edb11066f5ee232cbccf9f` | Exec function obfuscated VeryHidden sheet | 19/60 |
 2.1  | `ef0d4cfef52e4a671a3ba2d018aa2fd7f1141fe9d0ef9180724563d2881b90a7` | REGISTER function to execute payload | 21/61 |
 2.2  | `37b901c79bd6b9b4739e41f61dbcd5c69cd118a89c2e72520bc449b58585b806` | REGISTER function to execute payload obfuscated | 15/58 |
 2.3  | `d34d8fd77ee0030835d2dc5348fa7e523358f1f9bf4e93fc9f7ac0c8c0d97713` | REGISTER function to execute payload obfuscated Hidden sheet | 15/58 |
 2.4  | `bdf4f40db5393b441465d79fcc5a8b3b031a15b8718657e20ce449e806880495` | REGISTER function to execute payload obfuscated VeryHidden sheet | 11/60 |
-3.1  | `24eff4ca4ed09a0e00b503b3250884fb30eeaa9c1af0daa60f78cda5933e7a3f` | CALL function to download additional payload | 20/59 |
-3.2  | `f6658ef8724c23a7a8251b5fd36b5b6562637aefa0b744a707db76b11d3d7aa1` | CALL function to download additional payload obfuscate | 2/62 |
-3.3  | `da0ea2e39b3420ee934a0bd9a3e23c90aa5422fddc188dc617dabde6680cc7ed` | CALL function to download additional payload obfuscated Hidden sheet | 2/62 |
-3.4  | `0a6226d9a96a141fed5f5e053b7aaa9fa5110c804d440e1219371fb2bb1411f6` | CALL function to download additional payload obfuscated VeryHidden sheet | 10/62 |
-3.5  | `bf4e90217200f102d00ddb94f9c4edb5d270f65464ead008ca2adc49851b29e6` | CALL function to download additional payload from github | 2/61 |
+3.1  | `24eff4ca4ed09a0e00b503b3250884fb30eeaa9c1af0daa60f78cda5933e7a3f` | Call function to download additional payload | 20/59 |
+3.2  | `f6658ef8724c23a7a8251b5fd36b5b6562637aefa0b744a707db76b11d3d7aa1` | Call function to download additional payload obfuscate | 2/62 |
+3.3  | `da0ea2e39b3420ee934a0bd9a3e23c90aa5422fddc188dc617dabde6680cc7ed` | Call function to download additional payload obfuscated Hidden sheet | 2/62 |
+3.4  | `0a6226d9a96a141fed5f5e053b7aaa9fa5110c804d440e1219371fb2bb1411f6` | Call function to download additional payload obfuscated VeryHidden sheet | 10/62 |
+3.5  | `bf4e90217200f102d00ddb94f9c4edb5d270f65464ead008ca2adc49851b29e6` | Call function to download additional payload from github | 2/61 |
 4.1  | `afc8cfbcab3b8576eecea4496345307db857b5dcdb9091661db303045b04a0fc` | EXEC function with sandboxing detections | 1/61 |
 4.2  | `d92eba2abb1d677713b9036e7ec31d9638ba76c94a829c2f4a3901c629a5bf8c` | REGISTER function with sandboxing detections | 2/61 |
 4.3  | `970648869a6068e203144c556d497a9d15bd06177b8807a8161571855ce411b4` | CALL function with sandboxing detections | 0/61 |
-4.4  | `f4bba1d7796320b49796dca7c46bbc92b0c0c27caed6fa057425703df15e220e` | CALL function to download additional payload from github with sandboxing detections | 1/61
+4.4  | `f4bba1d7796320b49796dca7c46bbc92b0c0c27caed6fa057425703df15e220e` | Call function to download additional payload from github with sandboxing detections | 1/61
 
 ### Test Case 1 
 This test case relies on execution via the EXEC function.  This function will execute powershell.exe with an encoded command. 
@@ -135,7 +135,7 @@ This sample contains the same obfuscation as test case 1.2, however utilizes a v
 ### Test Case 2 
 **These test samples will crash Excel after executing the payload**
 
-This test case utilizes REGISTER functions to call Kernel32.dll's functions of VirtualAlloc, WriteProcessMemory and CreateThread. This sample uses custom function when writing the payload to memory and executing.
+This test case utilizes REGISTER functions to call Kernel32 Virtualalloc, WriteProcessMemory and CreateThread functions. This sample uses custom function when writing the payload to memory and executing.
 
 #### Sample Download
 The following samples for test case 2 can be downloaded from [samples](samples/VirtualAlloc.zip) password for zip file `infected`
@@ -220,7 +220,7 @@ This test case simulates downloading a file and requires having Totes.vbs within
 ![test case 4.2](images/4_2.png)
 
 #### Test case 4.3 
-This test case utilizes REGISTER functions to call Kernel32.dll's VirtualAlloc, WriteProcessMemory and CreateThread functions. This sample uses a custom function when writing the payload to memory and executing. However, it doesn’t not use Auto_Open for automatic execution and limited sandboxing techniques. `970648869a6068e203144c556d497a9d15bd06177b8807a8161571855ce411b4` has 0/65 detections on VT.
+This test case utilizes REGISTER functions to call Kernel32 Virtualalloc, WriteProcessMemory and CreateThread functions. This sample uses a custom function when writing the payload to memory and executing. However, it doesn’t not use Auto_Open for automatic execution and limited sandboxing techniques. `970648869a6068e203144c556d497a9d15bd06177b8807a8161571855ce411b4` has 0/65 detections on VT.
 ![test case 4.3](images/4_3.png)
 
 #### Test case 4.4 
