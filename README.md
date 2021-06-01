@@ -51,41 +51,44 @@ Table of Contents
 
 ## Excel 4 Macro Forensics Tips
 
+### MITRE ATT&CK Overview
+Although this work is focusing solely on one specific Initial Access Technique ([Phishing](https://attack.mitre.org/techniques/T1566/)), below is a breakdown of the various ATT&CK techniques leveraged inside of Excel4 payloads during [User Execution: Malicious File](https://attack.mitre.org/techniques/T1204/002/)
+
 ### Execution Techniques
 Below are common execution techniques leveraged by malware inside of Excel4 macro documents.
 
-Techniques | Description | Malicious Usage |
----------- | ----------- | --------------- |
-`EXEC` | starts a process | Often used to execution second stage payload |
-`UNREGISTER` | Unregisters a previously registered dynamic link library | Unregister DLL after malicious activity is complete. | 
-`REGISTER` | Registers the specified dynamic link library | Write payload to memory | 
-`CALL` | use DLL functions directly in worksheets | Use functions within dlls like ShellExecute, URLDownloadToFile | 
-`FOPEN` | Opens a file into memory | creates malicious file | 
-`FWRITE` | Writes text to a file | Write to malicious file | 
-`FCLOSE` | Closes the specified file | Closes malicious file | 
-`FREADLIN` | Reads characters from a file | Reads payload within file |
+Techniques | Description | Malicious Usage | MITRE ATT&CK Mapping |
+---------- | ----------- | --------------- | -------------------- |
+`EXEC` | Starts a process | Often used to execution second stage payload | [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/) , [Signed Binary Proxy Execution](https://attack.mitre.org/techniques/T1218/) |
+`UNREGISTER` | Unregisters a previously registered dynamic link library | Unregister DLL after malicious activity is complete | [Shared Modules](https://attack.mitre.org/techniques/T1129/) |
+`REGISTER` | Registers the specified dynamic link library | Write payload to memory | [Shared Modules](https://attack.mitre.org/techniques/T1129/) |
+`CALL` | Use DLL functions directly in worksheets | Use functions within dlls like ShellExecute, URLDownloadToFile | [Native API](https://attack.mitre.org/techniques/T1106/) |
+`FOPEN` | Opens a file into memory | Creates malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
+`FWRITE` | Writes text to a file | Write to malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
+`FCLOSE` | Closes the specified file | Closes malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
+`FREADLIN` | Reads characters from a file | Reads payload within file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
 
-### Obfuscation Techniques
-Common Evasion or Obfuscation techniques often used by malware inside of Excel4 macro documents.
+### (De)Obfuscation Techniques
+Obfuscation/Deobfuscation techniques often used by malware inside of Excel4 macro documents. Payloads are almost always deobfuscated, dynamically, once the document is executed by a victim.
 
-Techniques | Description | Malicious Usage |
----------- | ----------- | --------------- |
-`Download via DCONN` | Pulls data from external data source | download additional excel4 macro content |
-`CHAR` | returns a character when given a valid character code | obfuscates payloads and macro functions |
-`MID` | extracts a given number of characters from the middle of a supplied text string | obfuscates payloads and macro functions |
-`FORMULA` | Enters a formula in the active cell or in a reference. | dynamically builds payload as a function.  |
-`CODE` | Returns the numeric code for a given character  | Obfuscates payload and macro functions |
-`HEX2DEC` | Converts a hexadecimal number to decimal | Obfuscates payload and macro functions |
+Techniques | Description | Malicious Usage | MITRE ATT&CK Mapping |
+---------- | ----------- | --------------- | -------------------- |
+`Download via DCONN` | Pulls data from external data source | Download additional Excel4 macro content | [Application Layer Protocol](https://attack.mitre.org/techniques/T1071/) |
+`CHAR` | Returns a character when given a valid character code | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ]  |
+`MID` | Extracts a given number of characters from the middle of a supplied text string | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
+`FORMULA` | Enters a formula in the active cell or in a reference | Dynamically builds payload as a function | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
+`CODE` | Returns the numeric code for a given character  | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
+`HEX2DEC` | Converts a hexadecimal number to decimal | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
 
 ### Sandboxing Detection Techniques
-Techniques used to check document execution environment
+Techniques used to check document execution environment in an effort to perform Defense Evasion.
 
-Function | Description | Malicious Usage |
----------- | ----------- | --------------- |
-`GET.WORKSPACE` | Returns information about the workspace | Used to detect various information about windows environment to evade dynamic detonation |
-`GET.DOCUMENT` | Returns information about a sheet in a workbook | Used to gather information about the running document to detect dynamic detonation. |
-`GET.WINDOW` | Returns information about a window | Used to get information about the Excel window to detect dynamic detonation | 
-`GET.WORKBOOK` | Returns information about a workbook | Used to gather information about the running document to detect dynamic detonation. 
+Function | Description | Malicious Usage | MITRE ATT&CK Mapping |
+-------- | ----------- | --------------- | -------------------- |
+`GET.WORKSPACE` | Returns information about the workspace | Used to detect various information about windows environment to evade dynamic detonation | [Virtualization/Sandbox Evasion: System Checks](https://attack.mitre.org/techniques/T1497/001/) |
+`GET.DOCUMENT` | Returns information about a sheet in a workbook | Used to gather information about the running document to detect dynamic detonation | [Virtualization/Sandbox Evasion: System Checks](https://attack.mitre.org/techniques/T1497/001/) |
+`GET.WINDOW` | Returns information about a window | Used to get information about the Excel window to detect dynamic detonation | [Virtualization/Sandbox Evasion: System Checks](https://attack.mitre.org/techniques/T1497/001/) |
+`GET.WORKBOOK` | Returns information about a workbook | Used to gather information about the running document to detect dynamic detonation | [Virtualization/Sandbox Evasion: System Checks](https://attack.mitre.org/techniques/T1497/001/) | 
 
 ## Test Samples
 
