@@ -55,7 +55,7 @@ Table of Contents
 ### MITRE ATT&CK Overview
 Although this work is focusing solely on one specific Initial Access Technique ([Phishing](https://attack.mitre.org/techniques/T1566/)), below is a breakdown of the various ATT&CK techniques leveraged inside of Excel4 payloads during [User Execution: Malicious File](https://attack.mitre.org/techniques/T1204/002/)
 
-An interactive ATT&CK Navigator Layer can be found [here](https://raw.githubusercontent.com/carbonblack/excel4-tests/main/Attack_Navigator_Layer/Carbon_Black_-_Excel4_Forensics_Tips.json)
+An interactive ATT&CK Navigator Layer can be found [here](https://mitre-attack.github.io/attack-navigator/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2Fcarbonblack%2Fexcel4-tests%2Fmain%2FAttack_Navigator_Layer%2FCarbon_Black_-_Excel4_Forensics_Tips.json)
 
 ### Execution Techniques
 Below are common execution techniques leveraged by malware inside of Excel4 macro documents.
