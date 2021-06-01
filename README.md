@@ -55,21 +55,21 @@ Table of Contents
 ### MITRE ATT&CK Overview
 Although this work is focusing solely on one specific Initial Access Technique ([Phishing](https://attack.mitre.org/techniques/T1566/)), below is a breakdown of the various ATT&CK techniques leveraged inside of Excel4 payloads during [User Execution: Malicious File](https://attack.mitre.org/techniques/T1204/002/)
 
-An interactive ATT&CK Navigator Layer can be found [here]()
+An interactive ATT&CK Navigator Layer can be found [here](https://raw.githubusercontent.com/carbonblack/excel4-tests/main/Attack_Navigator_Layer/Carbon_Black_-_Excel4_Forensics_Tips.json)
 
 ### Execution Techniques
 Below are common execution techniques leveraged by malware inside of Excel4 macro documents.
 
 Techniques | Description | Malicious Usage | MITRE ATT&CK Mapping |
 ---------- | ----------- | --------------- | -------------------- |
-`EXEC` | Starts a process | Often used to execution second stage payload | [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/) , [Signed Binary Proxy Execution](https://attack.mitre.org/techniques/T1218/) |
+`EXEC` | Starts a process | Often used to execution second stage payload | [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/) / [Signed Binary Proxy Execution](https://attack.mitre.org/techniques/T1218/) |
 `UNREGISTER` | Unregisters a previously registered dynamic link library | Unregister DLL after malicious activity is complete | [Shared Modules](https://attack.mitre.org/techniques/T1129/) |
 `REGISTER` | Registers the specified dynamic link library | Write payload to memory | [Shared Modules](https://attack.mitre.org/techniques/T1129/) |
 `CALL` | Use DLL functions directly in worksheets | Use functions within dlls like ShellExecute, URLDownloadToFile | [Native API](https://attack.mitre.org/techniques/T1106/) |
-`FOPEN` | Opens a file into memory | Creates malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
-`FWRITE` | Writes text to a file | Write to malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
-`FCLOSE` | Closes the specified file | Closes malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
-`FREADLIN` | Reads characters from a file | Reads payload within file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)] |
+`FOPEN` | Opens a file into memory | Creates malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) |
+`FWRITE` | Writes text to a file | Write to malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) |
+`FCLOSE` | Closes the specified file | Closes malicious file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) |
+`FREADLIN` | Reads characters from a file | Reads payload within file | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) |
 
 ### (De)Obfuscation Techniques
 Obfuscation/Deobfuscation techniques often used by malware inside of Excel4 macro documents. Payloads are almost always deobfuscated, dynamically, once the document is executed by a victim.
@@ -77,11 +77,11 @@ Obfuscation/Deobfuscation techniques often used by malware inside of Excel4 macr
 Techniques | Description | Malicious Usage | MITRE ATT&CK Mapping |
 ---------- | ----------- | --------------- | -------------------- |
 `Download via DCONN` | Pulls data from external data source | Download additional Excel4 macro content | [Application Layer Protocol](https://attack.mitre.org/techniques/T1071/) |
-`CHAR` | Returns a character when given a valid character code | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ]  |
-`MID` | Extracts a given number of characters from the middle of a supplied text string | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
-`FORMULA` | Enters a formula in the active cell or in a reference | Dynamically builds payload as a function | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
-`CODE` | Returns the numeric code for a given character  | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
-`HEX2DEC` | Converts a hexadecimal number to decimal | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) , [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) ] |
+`CHAR` | Returns a character when given a valid character code | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) / [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/)   |
+`MID` | Extracts a given number of characters from the middle of a supplied text string | Obfuscates payloads and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) / [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/)  |
+`FORMULA` | Enters a formula in the active cell or in a reference | Dynamically builds payload as a function | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) / [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/)  |
+`CODE` | Returns the numeric code for a given character  | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) / [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/)  |
+`HEX2DEC` | Converts a hexadecimal number to decimal | Obfuscates payload and macro functions | [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/) / [Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/) |
 
 ### Sandboxing Detection Techniques
 Techniques used to check document execution environment in an effort to perform Defense Evasion.
