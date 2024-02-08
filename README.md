@@ -123,7 +123,7 @@ Test Case | sha256 | Technique | VT Results |
 This test case relies on execution via the EXEC function.  This function will execute powershell.exe with an encoded command. 
 
 #### Sample Download
-The following samples for test case 1 can be downloaded from [Simplexecution.zip](samples/Simplexecution.zip) password for zip file `infected`
+The following samples for test case 1 can be downloaded from [SimpleExecution.zip](samples/SimpleExecution.zip) password for zip file `infected`
 
 #### Test case 1.1 
 This sample contains non-obfuscated functions with Auto_Open defined on A1. `4ee06ac4f0d73ec4d95cbc47a34ae550ab56f22efd19cc9aabf53e54d371e921` has 12/61 hits on VT. 
